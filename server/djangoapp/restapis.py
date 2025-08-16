@@ -40,6 +40,7 @@ def post_review(data_dict):
         res = requests.post(f'{backend_url}/insert_review', json=data_dict)
         return res.json()
     except Exception as e:
+        print("error occurred here")
         print(f"Unexpected {e=}, {type(e)=}")
         print("Network exception occurred")
     

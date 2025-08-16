@@ -125,7 +125,8 @@ def add_review(request):
     #    return JsonResponse({"status":403,"message":"Unauthorized"})
     
     try:
-        res = post_review(request.body)
+        body = json.loads(request.body.decode('utf-8'))
+        res = post_review(body)
         return JsonResponse({"status": 200, "review_added": res})
     except Exception as e:
         return JsonResponse({"status": 500, "message": str(e)})
